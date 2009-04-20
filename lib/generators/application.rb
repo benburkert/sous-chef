@@ -2,6 +2,10 @@ module SousChef
   module Generators
     class ApplicationGenerator < Generator
 
+      def destination_root
+        File.join(@destination_root, name)
+      end
+
       desc <<-DESC
       Generates a new chef cookbook with recipes and nodes.
       DESC

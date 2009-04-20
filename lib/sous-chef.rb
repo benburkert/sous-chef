@@ -10,3 +10,4 @@ path = File.join(File.dirname(__FILE__))
 
 require File.join(path, 'sous-chef', 'generator')
 require File.join(path, 'generators', 'application')
+require File.join(path, 'generators', 'node')

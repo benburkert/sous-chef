@@ -7,8 +7,8 @@ module SousChef
     DESC
 
     class Generator < ::Templater::Generator
-      def destination_root
-        File.join(@destination_root, name)
+      def self.source_root
+        File.join(File.dirname(__FILE__), '..', 'generators', 'templates')
       end
     end
   end
