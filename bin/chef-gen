@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'sous-chef'
+
+SousChef::Generators.run_cli(Dir.pwd, 'chef-gen', SousChef::VERSION, ARGV)

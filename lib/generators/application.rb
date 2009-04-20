@@ -8,5 +8,7 @@ module SousChef
 
       first_argument :name, :required => true, :desc => "Application name"
     end
+
+    add :app, ApplicationGenerator
   end
 end
