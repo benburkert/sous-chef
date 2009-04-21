@@ -22,17 +22,17 @@ module SousChef
 
       template :default_attributes do |template|
         template.source = File.join('nodes', 'default', 'attributes', '%node%_node.rb.erb')
-        template.destination = File.join('nodes', node, 'recipes', node, 'attributes', "#{node}_node.rb")
+        template.destination = File.join('nodes', node, 'cookbooks', node, 'attributes', "#{node}_node.rb")
       end
 
       file :default_recipe do |file|
         file.source = File.join('nodes', 'default', 'recipes', 'default.rb')
-        file.destination = File.join('nodes', node, 'recipes', node, 'recipes', 'default.rb')
+        file.destination = File.join('nodes', node, 'cookbooks', node, 'recipes', 'default.rb')
       end
 
       directory :ec2_attributes, :platform => :ec2 do |directory|
         directory.source = File.join('nodes', 'ec2', 'attributes')
-        directory.destination = File.join('nodes', node, 'recipes', 'system', 'attributes')
+        directory.destination = File.join('nodes', node, 'cookbooks', 'system', 'attributes')
       end
     end
 

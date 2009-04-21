@@ -25,7 +25,7 @@ module SousChef
       option :node, :default => :none, :desc => "Initial Node"
 
       empty_directory :nodes, 'nodes'
-      empty_directory :recipes, 'recipes'
+      empty_directory :cookbooks, 'cookbooks'
 
       invoke :node do |generator|
         generator.new(destination_root, options, node.to_s) unless node == :none
