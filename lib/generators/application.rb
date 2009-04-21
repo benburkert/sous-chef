@@ -26,6 +26,10 @@ module SousChef
 
       empty_directory :nodes, 'nodes'
       empty_directory :recipes, 'recipes'
+
+      invoke :node do |generator|
+        generator.new(destination_root, options, node.to_s) unless node == :none
+      end
     end
 
     add :app, ApplicationGenerator
