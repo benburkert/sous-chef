@@ -11,5 +11,19 @@ module SousChef
         File.join(File.dirname(__FILE__), '..', 'generators', 'templates')
       end
     end
+
+    class CookbookBasedGenerator < Generator
+      def cookbook_name
+        cookbook.to_s.split('::')[0]
+      end
+
+      def recipe_name
+        if recipe == :default && cookbook.to_s =~ /^\w+::\w+$/
+          cookbook.to_s.split('::')[1]
+        else
+          recipe.to_s
+        end
+      end
+    end
   end
 end
