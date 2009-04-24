@@ -27,7 +27,7 @@ spec = Gem::Specification.new do |s|
   s.email = GEM_EMAIL
   s.homepage = PROJECT_URL
   s.bindir = "bin"
-  s.executables = %w( chef-gen )
+  s.executables = %w( chef-gen chefify chef )
 
   s.add_dependency "templater", ">= 0.5.0"
 

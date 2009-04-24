@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'sous-chef'
+
+abort "Please specify the directory to chefify, e.g. `#{File.basename($0)} .'" if ARGV.empty?
+
+dir, args = ARGV.first, %w[app chef]
+
+args << '--platform=solo' if File.exists? File.expand_path("~/.ey-cloud.yml")
+
+SousChef::Generators.run_cli(File.expand_path(dir), 'chef-gen', SousChef::VERSION, args)

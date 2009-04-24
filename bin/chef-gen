@@ -3,4 +3,12 @@
 require 'rubygems'
 require 'sous-chef'
 
-SousChef::Generators.run_cli(Dir.pwd, 'chef-gen', SousChef::VERSION, ARGV)
+dir = if File.exists? File.expand_path('config/sous-chef.yml')
+  Dir.pwd
+elsif File.exists? File.expand_path('chef/config/sous-chef.yml')
+  File.expand_path('chef')
+else
+  Dir.pwd
+end
+
+SousChef::Generators.run_cli(dir, 'chef-gen', SousChef::VERSION, ARGV)

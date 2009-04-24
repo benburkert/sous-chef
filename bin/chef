@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'sous-chef'
+require 'rake'
+
+begin
+  origin = Dir.pwd if File.exists? File.join(Dir.pwd, 'chef')
+  Dir.chdir(File.join(Dir.pwd, 'chef'))
+  Rake.application.run
+ensure
+  Dir.chdir(File.expand_path(origin))
+end
