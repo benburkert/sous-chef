@@ -1,0 +1,81 @@
+h1. sous-chef
+
+bq. by Ben Burkert
+
+h2. DESCRIPTION:
+
+An assistant to chef. Helps organize cookbooks for multiple nodes.
+
+h2. REQUIREMENTS:
+ 
+* templater >= 0.5.0
+ 
+h2. INSTALL:
+ 
+  $ git clone git://github.com/benburkert/sous-chef.git
+  $ cd sous-chef
+  $ rake install
+
+h2. USAGE:
+
+From within your Rails/Merb project, run:
+
+<pre>
+<code>
+  $ chefify .
+</code>
+</pre>
+
+That should generate the basic layout in a "chef" dir:
+
+<pre>
+<code>
+  Generating with app generator:
+       [ADDED]  config
+       [ADDED]  nodes
+       [ADDED]  cookbooks
+       [ADDED]  config/sous-chef.yml
+       [ADDED]  Rakefile
+</code>
+</pre>
+
+Next generate some nodes with the chef-gen command:
+
+<pre>
+<code>
+  $ chef-gen node beta --environment=staging --platform=ec2
+  Generating with node generator:
+       [ADDED]  nodes/beta/cookbooks/system/attributes
+       [ADDED]  nodes/beta/cookbooks/beta/recipes/default.rb
+       [ADDED]  nodes/beta/cookbooks/beta/attributes/beta_node.rb
+</code>
+</pre>
+
+And a few cookbooks:
+
+<pre>
+<code>
+  $ chef-gen cookbook beta --environment=staging --platform=ec2
+  Generating with cookbook generator:
+       [ADDED]  cookbooks/postgresql/attributes/server.rb
+       [ADDED]  cookbooks/postgresql/recipes/server.rb
+</code>
+</pre>
+
+Use the "chef" script to manage your nodes:
+
+<pre>
+<code>
+  $ chef -T
+  (in /Users/ben/code/myapp/chef)
+  cd cookbooks
+  cd /Users/ben/code/myapp/chef
+  cd nodes/beta/cookbooks
+  cd /Users/ben/code/myapp/chef
+  rake beta:deploy   # Deploy the beta cookbook.
+  rake beta:package  # Package the beta cookbook.
+  rake beta:test     # test the beta cookbook.
+</code>
+</pre>
+
+*note* use 'chef' instead of 'rake'. (e.g. chef beta:deploy).

@@ -32,7 +32,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency "templater", ">= 0.5.0"
 
   s.require_path = 'lib'
-  s.files = %w(LICENSE Rakefile) + Dir.glob("{lib,bin}/**/*")
+  s.files = %w(LICENSE Rakefile README.textile) + Dir.glob("{lib,bin}/**/*")
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
