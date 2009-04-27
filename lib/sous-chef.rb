@@ -1,8 +1,6 @@
 require 'rubygems'
 gem 'templater', '>= 0.5.0'
-gem 'thor', '>= 0.9.9'
 require 'templater'
-require 'thor'
 
 module SousChef
   VERSION = '0.0.1'
